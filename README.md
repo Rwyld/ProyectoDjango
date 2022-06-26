@@ -1,13 +1,13 @@
 # ProyectoDjango
 
 Pagina de inicio
-''' shell
+``` shell
 http://127.0.0.1:8000/App/ para pagina de inicio
-'''
+```
 
 Administrador
-''' shell
+``` shell
 http://127.0.0.1:8000/admin/ para pagina de administracion
 
 Usario/Password : admin
-'''
+```
