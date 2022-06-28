@@ -2,9 +2,10 @@ from django.shortcuts import render
 from .models import *
 
 def index(request):
-    plantas = Plantas.objects.all()
-    maceteros = Maceteros.objects.all()
-    libros = Libros.objects.all()
+    return render(request, "app/index.html")
 
-    vista = {"Plantas": plantas, "Maceteros": maceteros, "Libros": libros}
-    return render(request, "app/index.html", vista)
+def registro(request):
+    return render(request, "app/base.html")
+
+def libros(request):
+    return render(request, "app/1_libros.html")
