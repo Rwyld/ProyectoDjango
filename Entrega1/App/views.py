@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import *
+from django.http import HttpResponse
+
 
 def index(request):
     return render(request, "app/index.html")
@@ -18,3 +20,21 @@ def plantas(request):
 
 def registro(request):
     return render(request, "app/2_registro.html")
+
+def busqueda(request):
+    
+    if request.GET["producto"]:
+        mensaje="articulo buscado: %r" %request.GET["producto"]
+        prd=request.GET["producto"]
+
+        maceta=Maceteros.objects.filter(nombre__icontains=prd)
+        plant=Plantas.objects.filter(nombre__icontains=prd)
+        books=Libros.objects.filter(nombre__icontains=prd)
+        articulos={"maceta":maceta, "plant": plant, "books": books}
+
+        return render(request, "app/busqueda.html", {"articulos":articulos, "query": prd})
+
+    else:
+        mensaje="no has introducido nada"
+
+    return HttpResponse (mensaje)

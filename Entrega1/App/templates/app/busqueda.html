@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{%  block tienda %}
+
+estás buscando: <strong>{{query}}</strong>
+
+{% if articulos %}
+    articulos encontrados: {{articulos|lenght}} articulos
+
+{% for maceta in articulos %}
+    {{maceta.id}} &nbsp; {{maceta.precio}} &nbsp; {{maceta.tamaño}} &nbsp; {{maceta.tipo}}
+
+    {% endfor %}
+
+{% for plant in articulos %}
+    {{plant.id}} &nbsp; {{plant.precio}} &nbsp; {{plant.tamaño}} &nbsp; {{plant.tipo}}
+
+    {% endfor %}
+
+{% for books in articulos %}
+    {{books.id}} &nbsp; {{books.precio}} &nbsp; {{books.tamaño}} &nbsp; {{books.tipo}}
+
+    {% endfor %}
+
+{% endfor %}
+
+{% else %}
+    no esta el producto seleccionado
+
+{%  endblock tienda %}
