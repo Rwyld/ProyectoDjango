@@ -2,3 +2,29 @@
 {% load static %}
 
 {% block titulo %} <title>Registro</title> {% endblock titulo %}
+
+{% block tienda %}
+
+<h1>Registro</h1>
+
+{% if Registro.error %}
+
+<p style="color:red">Por favor ingresa los datos ingresados</p>
+
+{% endif %}
+
+
+<form action="" method="POST"> {% csrf_token %} 
+    <table>
+
+        {{ Registro.as_table }}
+
+    </table>
+
+    <input type="submit" value="Enviar" action="">
+ 
+
+
+</form>
+
+{% endblock tienda %}

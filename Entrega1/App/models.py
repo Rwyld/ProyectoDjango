@@ -37,3 +37,8 @@ class Maceteros(models.Model):
 class Libros(models.Model):
     nombre = models.CharField("Nombre del Libro", max_length=30)
     precio = models.FloatField("Precio $")
+
+class Usuario(models.Model):
+    user = models.CharField("Usuario", max_length=30)
+    email = models.CharField("Mail", max_length=100)
+    contraseña = models.CharField("Contraseña", max_length=10)
