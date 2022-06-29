@@ -3,29 +3,22 @@
 
 {%  block tienda %}
 
-estás buscando: <strong>{{query}}</strong>
+    <p>Estás buscando: <strong>{{query}}</strong></p>
 
-{% if articulos %}
-    articulos encontrados: {{articulos|lenght}} articulos
+        {% if plant %}
+            <p>Articulos encontrados: {{plant|length}} articulos</p>
 
-{% for maceta in articulos %}
-    {{maceta.id}} &nbsp; {{maceta.precio}} &nbsp; {{maceta.tamaño}} &nbsp; {{maceta.tipo}}
+            
+                {% for plantas in plant %}
 
-    {% endfor %}
+                    <li> Nombre: {{plantas.nombre}} &nbsp;  Precio: $ {{plantas.precio}} &nbsp; Tamaño: {{plantas.tamaño}} &nbsp; Tipo: {{plantas.tipo}} </li>
+                        
+                {% endfor %}
+           
 
-{% for plant in articulos %}
-    {{plant.id}} &nbsp; {{plant.precio}} &nbsp; {{plant.tamaño}} &nbsp; {{plant.tipo}}
+        {% else %}
+            <p>no esta el producto seleccionado</p>
 
-    {% endfor %}
-
-{% for books in articulos %}
-    {{books.id}} &nbsp; {{books.precio}} &nbsp; {{books.tamaño}} &nbsp; {{books.tipo}}
-
-    {% endfor %}
-
-{% endfor %}
-
-{% else %}
-    no esta el producto seleccionado
+        {% endif %}
 
 {%  endblock tienda %}

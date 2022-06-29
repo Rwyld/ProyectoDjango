@@ -24,15 +24,14 @@ def registro(request):
 def busqueda(request):
     
     if request.GET["producto"]:
-        mensaje="articulo buscado: %r" %request.GET["producto"]
+        #mensaje="articulo buscado: %r" %request.GET["producto"]
         prd=request.GET["producto"]
 
-        maceta=Maceteros.objects.filter(nombre__icontains=prd)
         plant=Plantas.objects.filter(nombre__icontains=prd)
-        books=Libros.objects.filter(nombre__icontains=prd)
-        articulos={"maceta":maceta, "plant": plant, "books": books}
+        #books=Libros.objects.filter(nombre__icontains=prd)
+        #articulos={"plant": plant, "books": books}
 
-        return render(request, "app/busqueda.html", {"articulos":articulos, "query": prd})
+        return render(request, "app/busqueda.html", {"plant":plant, "query": prd})
 
     else:
         mensaje="no has introducido nada"
