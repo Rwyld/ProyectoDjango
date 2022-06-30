@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from App.forms import Registro
 from .models import *
 from django.http import HttpResponse
 
@@ -19,7 +21,21 @@ def plantas(request):
     return render(request, "app/1_plantas.html")
 
 def registro(request):
-    return render(request, "app/2_registro.html")
+
+    if request.method == 'POST':
+        newuser = Registro(request.POST)
+
+        if newuser.is_valid():
+            info = newuser.cleaned_data
+            usuario = Usuario(user=info['user'], email=info['email'], contraseña=info['contraseña'])
+            usuario.save()
+
+            return render(request, "app/2_registro2.html")
+    
+    else:
+        newuser = Registro()
+
+    return render(request, "app/2_registro.html", {"Newuser":newuser})
 
 def busqueda(request):
     
