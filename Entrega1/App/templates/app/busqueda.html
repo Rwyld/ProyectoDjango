@@ -5,20 +5,22 @@
 
     <p>Estás buscando: <strong>{{query}}</strong></p>
 
-        {% if plant %}
-            <p>Articulos encontrados: {{plant|length}} articulos</p>
+        {% if inventarios %}
+            <p>Articulos encontrados: {{inventarios|length}} articulos</p>
 
             
-                {% for plantas in plant %}
+                {% for inventario in inventarios %}
 
-                    <li> Nombre: {{plantas.nombre}} &nbsp;  Precio: $ {{plantas.precio}} &nbsp; Tamaño: {{plantas.tamaño}} &nbsp; Tipo: {{plantas.tipo}} </li>
+                    <li> Nombre: {{inventario.nombre}} &nbsp;  Precio: $ {{inventario.precio}} &nbsp; Tipo: {{inventario.tipo}} </li>
                         
                 {% endfor %}
            
-
         {% else %}
-            <p>no esta el producto seleccionado</p>
-
+            <p>no esta el producto seleccionado</p> 
+        
+        
         {% endif %}
+
+   
 
 {%  endblock tienda %}
