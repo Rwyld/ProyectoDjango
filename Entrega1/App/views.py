@@ -7,24 +7,25 @@ from django.http import HttpResponse
 
 
 def index(request):
-    items=Inventario.objects.all()
+    inventarios=Inventario.objects.all()
 
-    return render(request, "app/index.html", {"items":items})
+    return render(request, "app/index.html", {"inventarios":inventarios})
 
 def acerca(request):
-    return render(request, "app/0_acerca.html")
+    inventarios=Inventario.objects.all()
+    return render(request, "app/0_acerca.html", {"inventarios":inventarios})
 
 def libros(request):
-    items=Inventario.objects.all()
-    return render(request, "app/1_libros.html", {"items":items})
+    inventarios=Inventario.objects.all()
+    return render(request, "app/1_libros.html", {"inventarios":inventarios})
 
 def maceteros(request):
-    items=Inventario.objects.all()
-    return render(request, "app/1_maceteros.html", {"items":items})
+    inventarios=Inventario.objects.all()
+    return render(request, "app/1_maceteros.html", {"inventarios":inventarios})
 
 def plantas(request):
-    items=Inventario.objects.all()
-    return render(request, "app/1_plantas.html", {"items":items})
+    inventarios=Inventario.objects.all()
+    return render(request, "app/1_plantas.html", {"inventarios":inventarios})
 
 def registro(request):
 

@@ -16,11 +16,9 @@ Including another URLconf
 from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import path, include
-
-from App import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from App import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
