@@ -10,7 +10,6 @@ Las paginas Inicio, acerca y tienda, heredan desde una base HTML
 
 Acerca no tiene contenido...
 
-Cosas a futuro, mostrar los items de la pagina inicio desde una base de datos, ahora solo estan de muestra
 ```
 
 Administrador
